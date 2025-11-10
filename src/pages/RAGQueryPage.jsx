@@ -1,19 +1,12 @@
 import { useState } from 'react'
 import './RAGQueryPage.css'
 
-interface QueryMessage {
-  id: string
-  question: string
-  answer: string
-  timestamp: Date
-}
-
 const RAGQueryPage = () => {
   const [query, setQuery] = useState('')
-  const [messages, setMessages] = useState<QueryMessage[]>([])
+  const [messages, setMessages] = useState([])
   const [loading, setLoading] = useState(false)
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     if (!query.trim() || loading) return
 
@@ -25,7 +18,7 @@ const RAGQueryPage = () => {
     try {
       await new Promise((resolve) => setTimeout(resolve, 1500))
       const answer = `질문에 대한 답변입니다. 실제로는 RAG 시스템을 통해 작성한 포스트들을 기반으로 답변을 생성합니다.\n\n질문: "${question}"`
-      const newMessage: QueryMessage = {
+      const newMessage = {
         id: Date.now().toString(),
         question,
         answer,

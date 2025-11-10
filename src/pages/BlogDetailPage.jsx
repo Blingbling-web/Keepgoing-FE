@@ -1,27 +1,16 @@
 import { useState, useEffect } from 'react'
-import { useParams, Link, useNavigate } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import './BlogDetailPage.css'
 
-interface BlogPost {
-  id: string
-  title: string
-  content: string
-  createdAt: string
-  updatedAt: string
-  visibility: 'PUBLIC' | 'PRIVATE' | 'AI_COLLECTABLE'
-  aiCollectable: boolean
-}
-
 const BlogDetailPage = () => {
-  const { id } = useParams<{ id: string }>()
-  const navigate = useNavigate()
-  const [post, setPost] = useState<BlogPost | null>(null)
+  const { id } = useParams()
+  const [post, setPost] = useState(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     // TODO: API 호출로 블로그 상세 정보 가져오기
     if (id) {
-      const mockPost: BlogPost = {
+      const mockPost = {
         id,
         title: '첫 번째 포스트',
         content: '이것은 첫 번째 포스트의 전체 내용입니다...',
@@ -35,7 +24,7 @@ const BlogDetailPage = () => {
     }
   }, [id])
 
-  const getVisibilityLabel = (visibility: string) => {
+  const getVisibilityLabel = (visibility) => {
     switch (visibility) {
       case 'PUBLIC':
         return '공개'

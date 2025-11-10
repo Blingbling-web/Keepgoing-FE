@@ -1,10 +1,8 @@
 import { useState } from 'react'
 import './ResumePage.css'
 
-type ResumeType = 'resume' | 'cover-letter'
-
 const ResumePage = () => {
-  const [resumeType, setResumeType] = useState<ResumeType>('resume')
+  const [resumeType, setResumeType] = useState('resume')
   const [additionalInfo, setAdditionalInfo] = useState('')
   const [generatedContent, setGeneratedContent] = useState('')
   const [loading, setLoading] = useState(false)
@@ -62,9 +60,7 @@ const ResumePage = () => {
                   name="resume-type"
                   value="resume"
                   checked={resumeType === 'resume'}
-                  onChange={(e) =>
-                    setResumeType(e.target.value as ResumeType)
-                  }
+                  onChange={(e) => setResumeType(e.target.value)}
                 />
                 이력서
               </label>
@@ -74,9 +70,7 @@ const ResumePage = () => {
                   name="resume-type"
                   value="cover-letter"
                   checked={resumeType === 'cover-letter'}
-                  onChange={(e) =>
-                    setResumeType(e.target.value as ResumeType)
-                  }
+                  onChange={(e) => setResumeType(e.target.value)}
                 />
                 자기소개서
               </label>

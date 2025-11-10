@@ -2,18 +2,11 @@ import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import './BlogWritePage.css'
 
-interface BlogPost {
-  title: string
-  content: string
-  visibility: 'PUBLIC' | 'PRIVATE' | 'AI_COLLECTABLE'
-  aiCollectable: boolean
-}
-
 const BlogWritePage = () => {
-  const { id } = useParams<{ id: string }>()
+  const { id } = useParams()
   const navigate = useNavigate()
   const isEdit = !!id
-  const [formData, setFormData] = useState<BlogPost>({
+  const [formData, setFormData] = useState({
     title: '',
     content: '',
     visibility: 'PUBLIC',
@@ -34,7 +27,7 @@ const BlogWritePage = () => {
     }
   }, [id, isEdit])
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     setSaving(true)
 
@@ -88,7 +81,7 @@ const BlogWritePage = () => {
             onChange={(e) =>
               setFormData({
                 ...formData,
-                visibility: e.target.value as BlogPost['visibility'],
+                visibility: e.target.value,
               })
             }
           >

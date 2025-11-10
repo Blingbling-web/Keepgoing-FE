@@ -2,23 +2,14 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './BlogListPage.css'
 
-interface BlogPost {
-  id: string
-  title: string
-  content: string
-  createdAt: string
-  visibility: 'PUBLIC' | 'PRIVATE' | 'AI_COLLECTABLE'
-  aiCollectable: boolean
-}
-
 const BlogListPage = () => {
-  const [posts, setPosts] = useState<BlogPost[]>([])
+  const [posts, setPosts] = useState([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     // TODO: API 호출로 블로그 목록 가져오기
     // 임시 데이터
-    const mockPosts: BlogPost[] = [
+    const mockPosts = [
       {
         id: '1',
         title: '첫 번째 포스트',
@@ -32,7 +23,7 @@ const BlogListPage = () => {
     setLoading(false)
   }, [])
 
-  const getVisibilityLabel = (visibility: string) => {
+  const getVisibilityLabel = (visibility) => {
     switch (visibility) {
       case 'PUBLIC':
         return '공개'

@@ -12,7 +12,7 @@
 ## 기술 스택
 
 - React 18
-- TypeScript
+- JavaScript
 - React Router
 - Vite
 
@@ -34,27 +34,27 @@ npm run build
 ```
 src/
 ├── components/      # 공통 컴포넌트
-│   ├── Layout.tsx   # 레이아웃 (헤더, 네비게이션)
-│   └── ProtectedRoute.tsx  # 인증 보호 라우트
+│   ├── Layout.jsx   # 레이아웃 (헤더, 네비게이션)
+│   └── ProtectedRoute.jsx  # 인증 보호 라우트
 ├── contexts/        # Context API
-│   └── AuthContext.tsx  # 인증 컨텍스트
+│   └── AuthContext.jsx  # 인증 컨텍스트
 ├── pages/          # 페이지 컴포넌트
-│   ├── LoginPage.tsx
-│   ├── BlogListPage.tsx
-│   ├── BlogDetailPage.tsx
-│   ├── BlogWritePage.tsx
-│   ├── RAGQueryPage.tsx
-│   └── ResumePage.tsx
-└── App.tsx         # 메인 앱 컴포넌트
+│   ├── LoginPage.jsx
+│   ├── BlogListPage.jsx
+│   ├── BlogDetailPage.jsx
+│   ├── BlogWritePage.jsx
+│   ├── RAGQueryPage.jsx
+│   └── ResumePage.jsx
+└── App.jsx         # 메인 앱 컴포넌트
 ```
 
 ## API 연동
 
 현재는 Mock 데이터를 사용하고 있으며, 백엔드 API 스펙이 준비되면 다음 파일들에서 API 호출을 구현하면 됩니다:
 
-- `src/contexts/AuthContext.tsx` - 로그인 API
-- `src/pages/BlogListPage.tsx` - 블로그 목록 API
-- `src/pages/BlogDetailPage.tsx` - 블로그 상세 API
-- `src/pages/BlogWritePage.tsx` - 블로그 작성/수정 API
-- `src/pages/RAGQueryPage.tsx` - RAG 질의 API
-- `src/pages/ResumePage.tsx` - 이력서/자기소개서 생성 API
+- `src/contexts/AuthContext.jsx` - 로그인 API
+- `src/pages/BlogListPage.jsx` - 블로그 목록 API
+- `src/pages/BlogDetailPage.jsx` - 블로그 상세 API
+- `src/pages/BlogWritePage.jsx` - 블로그 작성/수정 API
+- `src/pages/RAGQueryPage.jsx` - RAG 질의 API
+- `src/pages/ResumePage.jsx` - 이력서/자기소개서 생성 API
